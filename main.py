@@ -22,7 +22,7 @@ def main():
         nasa_apod.nasa_apod(API_APOD, directory)
         bot.publish_to_bot()
     except requests.exceptions.HTTPError:
-        sys.exit('Неверная ссылка')
+        sys.exit('Некорректный запрос')
 
 
 if __name__ == "__main__":
