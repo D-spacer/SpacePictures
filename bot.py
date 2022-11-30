@@ -9,6 +9,7 @@ def publish_to_bot():
     load_dotenv()
     BOT_TOKEN = os.environ['BOT_TOKEN']
     TIMEOUT = os.environ['TIMEOUT']
+    CHANNEL=os.environ['CHANNEL']
 
     bot = telegram.Bot(token=BOT_TOKEN)
 
@@ -18,5 +19,5 @@ def publish_to_bot():
     random.shuffle(to_publish)
     while True:
         for photo in to_publish:
-            bot.send_photo(chat_id='@space_pictures_generator', photo=open(f'images/{photo}', 'rb'))
+            bot.send_photo(chat_id=f'{CHANNEL}', photo=open(f'images/{photo}', 'rb'))
             time.sleep(int(TIMEOUT))
