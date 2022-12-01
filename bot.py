@@ -14,5 +14,6 @@ def publish_to_bot(timeout=14400):
     random.shuffle(pictures_to_publish)
     while True:
         for picture in pictures_to_publish:
-            bot.send_photo(chat_id=f'{telegram_chat_id}', photo=open(f'images/{picture}', 'rb'))
+            with open(f'images/{photo}', 'rb') as image:
+                bot.send_photo(chat_id=f'{telegram_chat_id}', photo=image)
             time.sleep(timeout)
