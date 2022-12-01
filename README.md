@@ -13,9 +13,14 @@ SpacePictures
 -
 Скрипт использует API сервисов Nasa APOD, Nasa EPIC, поэтому необходимо внести ключи от данных сервисов в файл .env. Получить API можно по ссылкам https://api.nasa.gov/#epic, https://api.nasa.gov/#apod. Вам также понадобится ID запуска SpaceX и ключ от Telegram-бота. Информацию о сервисе SpaceX можно найти здесь:
 https://github.com/r-spacex/SpaceX-API/blob/master/docs/clients.md, документация к Telegram-боту находится здесь: https://core.telegram.org/bots/api
-API-ключи и ID должны храниться в файле .env, который следует разместить рядом с файлом main.py. Файл необходимо заполнять по образцу:
-
-```TOKEN_NAME=<токен>```
+API-ключи и ID должны храниться в файле .env, который следует разместить рядом с файлом main.py. Файл .env имеет следующую структуру:
+```
+EPIC_KEY=<токен для Nasa EPIC>
+APOD_KEY=<токен для Nasa APOD>
+SPACEX_ID=<идентификатор запуска SpaceX>
+TIMER=<время в секундах>
+TELEGRAM_CHANNEL=<ссылка на канал в Telegram, имеющая вид @channel>
+```
 
 Запуск скрипта
 -
