@@ -9,11 +9,12 @@ def publish_to_bot(timeout=14400):
     telegram_chat_id = os.environ['TG_CHANNEL_ID']
     bot = telegram.Bot(token=bot_token)
 
-    to_publish = []
-    for obj in os.walk('images'):
-        to_publish = obj[2]
-    random.shuffle(to_publish)
+    pictures_to_publish = []
+    generator = os.walk('images')
+    for object in generator:
+        pictures_to_publish = object[2]
+    random.shuffle(pictures_to_publish)
     while True:
-        for photo in to_publish:
-            bot.send_photo(chat_id=f'{telegram_chat_id}', photo=open(f'images/{photo}', 'rb'))
+        for picture in pictures_to_publish:
+            bot.send_photo(chat_id=f'{telegram_chat_id}', photo=open(f'images/{picture}', 'rb'))
             time.sleep(timeout)
