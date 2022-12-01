@@ -13,13 +13,13 @@ directory = 'images'
 
 def main():
     load_dotenv()
-    API_EPIC = os.environ['API_EPIC']
-    API_APOD = os.environ['API_APOD']
-    SPACEX_ID = os.environ['SPACEX_ID']
+    api_epic = os.environ['API_EPIC']
+    api_apod = os.environ['API_APOD']
+    spacex_id = os.environ['SPACEX_ID']
     try:
-        nasa_epic.nasa_epic(API_EPIC, directory)
-        fetch_spacex_last_launch.fetch_spacex_last_launch(SPACEX_ID, directory)
-        nasa_apod.nasa_apod(API_APOD, directory)
+        nasa_epic.nasa_epic(api_epic, directory)
+        fetch_spacex_last_launch.fetch_spacex_last_launch(spacex_id, directory)
+        nasa_apod.nasa_apod(api_apod, directory)
         bot.publish_to_bot()
     except requests.exceptions.HTTPError:
         sys.exit('Некорректный запрос')
