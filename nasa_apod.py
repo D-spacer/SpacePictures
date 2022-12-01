@@ -4,8 +4,7 @@ import expansion_extractor
 
 
 def nasa_apod(api_key, path, pictures_number=30):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path, exist_ok=True)
     parameters = {
         'api_key': api_key,
         'count': pictures_number
