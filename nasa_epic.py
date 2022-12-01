@@ -5,8 +5,7 @@ import expansion_extractor
 
 
 def nasa_epic(api_key, path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path, exist_ok=True)
     parameters_for_json = {
         'api_key': api_key,
     }
