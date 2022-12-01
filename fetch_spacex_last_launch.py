@@ -4,8 +4,7 @@ import expansion_extractor
 
 
 def fetch_spacex_last_launch(id, path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path, exist_ok=True)
     response_1 = requests.get(f'https://api.spacexdata.com/v5/launches/{id}')
     response_1.raise_for_status()
     decoded_response = response_1.json()
