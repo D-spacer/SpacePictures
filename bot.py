@@ -7,10 +7,9 @@ import time
 
 def publish_to_bot():
     load_dotenv()
-    BOT_TOKEN = os.environ['BOT_TOKEN']
-    TIMEOUT = os.environ['TIMEOUT']
-    CHANNEL=os.environ['CHANNEL']
-
+    bot_token = os.environ['BOT_TOKEN']
+    timeout = os.environ['TIMEOUT']
+    channel=os.environ['CHANNEL']
     bot = telegram.Bot(token=BOT_TOKEN)
 
     to_publish = []
