@@ -3,12 +3,12 @@ import requests
 import expansion_extractor
 
 
-def nasa_apod(api_key, path):
+def nasa_apod(api_key, path, pictures_number=30):
     if not os.path.exists(path):
         os.makedirs(path)
     parameters = {
         'api_key': api_key,
-        'count': 30
+        'count': pictures_number
     }
     response_for_json = requests.get('https://api.nasa.gov/planetary/apod',
                               params=parameters)
