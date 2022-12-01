@@ -13,8 +13,8 @@ directory = 'images'
 
 def main():
     load_dotenv()
-    epic_api_key = os.environ['API_EPIC']
-    apod_api_key = os.environ['API_APOD']
+    epic_api_key = os.environ['EPIC_KEY']
+    apod_api_key = os.environ['APOD_KEY']
     spacex_id = os.environ['SPACEX_ID']
     try:
         nasa_epic.nasa_epic(epic_api_key, directory)
