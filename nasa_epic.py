@@ -14,7 +14,7 @@ def nasa_epic(api_key, path):
                               params=parameters_for_json)
     response_for_json.raise_for_status()
     decoded_response = response_for_json.json()
-    for order, dictionary in enumerate(decoded_response):
+    for order, dictionary in enumerate(decoded_response, start=1):
         date = (datetime.datetime.fromisoformat(dictionary['date']))
         image_name = dictionary['image']
         parameters_for_image = {
