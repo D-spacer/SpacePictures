@@ -1,10 +1,10 @@
 import os
 import requests
 import datetime
-import expansion_extractor
+import extract_expansion
 
 
-def nasa_epic(api_key, path):
+def fetch_nasa_epic_images(api_key, path):
     os.makedirs(path, exist_ok=True)
     parameters_for_json = {
         'api_key': api_key,
@@ -23,6 +23,6 @@ def nasa_epic(api_key, path):
             f'https://api.nasa.gov/EPIC/archive/natural/{date.year}/{date.month}/{date.day}/png/{image_name}.png',
             params=parameters_for_image)
         response_for_image.raise_for_status()
-        exp = expansion_extractor.expansion_extractor(response_for_image.url)
+        exp = extract_expansion.extract_expansion(response_for_image.url)
         with open(os.path.join(path, f'nasa_epic_{order}{exp}'), 'wb') as file:
             file.write(response_for_image.content)
