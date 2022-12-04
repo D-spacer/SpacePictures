@@ -17,5 +17,5 @@ def nasa_apod(api_key, path, pictures_number=30):
         response_for_image = requests.get(dictionary['url'])
         response_for_image.raise_for_status()
         exp = expansion_extractor.expansion_extractor(dictionary['url'])
-        with open(os.path.join(path, f'nasa_apod_{order + 1}{exp}'), 'wb') as file:
+        with open(os.path.join(path, f'nasa_apod_{order}{exp}'), 'wb') as file:
             file.write(response_for_image.content)
