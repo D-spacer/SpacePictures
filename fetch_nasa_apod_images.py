@@ -16,6 +16,6 @@ def fetch_nasa_apod_images(api_key, path, pictures_number=30):
     for order, dictionary in enumerate(decoded_response, start=1):
         response_for_image = requests.get(dictionary['url'])
         response_for_image.raise_for_status()
-        exp = expansion_extractor.expansion_extractor(dictionary['url'])
+        exp = extract_expansion.extract_expansion(dictionary['url'])
         with open(os.path.join(path, f'nasa_apod_{order}{exp}'), 'wb') as file:
             file.write(response_for_image.content)
