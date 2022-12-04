@@ -24,5 +24,5 @@ def nasa_epic(api_key, path):
             params=parameters_for_image)
         response_for_image.raise_for_status()
         exp = expansion_extractor.expansion_extractor(response_for_image.url)
-        with open(os.path.join(path, f'nasa_epic_{order + 1}{exp}'), 'wb') as file:
+        with open(os.path.join(path, f'nasa_epic_{order}{exp}'), 'wb') as file:
             file.write(response_for_image.content)
