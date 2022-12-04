@@ -1,9 +1,9 @@
 import os
 import requests
-import expansion_extractor
+import extract_expansion
 
 
-def nasa_apod(api_key, path, pictures_number=30):
+def fetch_nasa_apod_images(api_key, path, pictures_number=30):
     os.makedirs(path, exist_ok=True)
     parameters = {
         'api_key': api_key,
