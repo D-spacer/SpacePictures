@@ -5,9 +5,9 @@ import extract_expansion
 
 def fetch_spacex_last_launch(id, path):
     os.makedirs(path, exist_ok=True)
-    response_for_json = requests.get(f'https://api.spacexdata.com/v5/launches/{id}')
-    response_for_json.raise_for_status()
-    decoded_response = response_1.json()
+    response = requests.get(f'https://api.spacexdata.com/v5/launches/{id}')
+    response.raise_for_status()
+    decoded_response = response.json()
     for order, link in enumerate(decoded_response['links']['flickr']['original'], start=1):
         response_for_image = requests.get(link)
         response_for_image.raise_for_status()
