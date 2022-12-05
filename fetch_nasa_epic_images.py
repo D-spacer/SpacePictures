@@ -9,10 +9,10 @@ def fetch_nasa_epic_images(api_key, path):
     parameters_for_json = {
         'api_key': api_key,
     }
-    response_for_json = requests.get('https://api.nasa.gov/EPIC/api/natural/images',
+    response = requests.get('https://api.nasa.gov/EPIC/api/natural/images',
                               params=parameters_for_json)
-    response_for_json.raise_for_status()
-    decoded_response = response_for_json.json()
+    response.raise_for_status()
+    decoded_response = response.json()
     for order, dictionary in enumerate(decoded_response, start=1):
         date = (datetime.datetime.fromisoformat(dictionary['date']))
         image_name = dictionary['image']
