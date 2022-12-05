@@ -20,7 +20,7 @@ def main():
         fetch_nasa_epic_images.fetch_nasa_epic_images(epic_api_key, DIRECTORY)
         fetch_spacex_last_launch.fetch_spacex_last_launch(spacex_launch_id, DIRECTORY)
         fetch_nasa_apod_images.fetch_nasa_apod_images(apod_api_key, DIRECTORY)
-        bot.publish_to_bot(telegram_chat_id='@space_pictures_generator')
+        bot.publish_to_bot('@space_pictures_generator', '5866680710:AAF8Xfd3EEfyjn0vCFeCEYE-XrgAyYUC9Ns')
     except requests.exceptions.HTTPError:
         sys.exit('Некорректный запрос')
 
