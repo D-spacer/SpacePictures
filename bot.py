@@ -1,11 +1,9 @@
 import telegram
-import os
 import random
 import time
 
 
-def publish_to_bot(telegram_chat_id, timeout=14400):
-    bot_token = os.environ['TG_BOT_TOKEN']
+def publish_to_bot(telegram_chat_id, bot_token, timeout=14400):
     bot = telegram.Bot(token=bot_token)
 
     *_, content = os.walk('images')
